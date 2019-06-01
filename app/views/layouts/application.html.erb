@@ -17,12 +17,19 @@
   </head>
 
   <body>
-      <%= raw analytical.body_prepend_javascript %>
-        <%= render "layouts/user_header" %>
-      <p class="notice"><%= notice %></p>
-         <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <%= raw analytical.body_append_javascript %>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <%= render partial: 'shared/navigation_bar' %>
+      </div>
+    </div>
 
+      <%= raw analytical.body_prepend_javascript %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      <%= yield %>
+      <%= raw analytical.body_append_javascript %>
+
+  </div>
   </body>
 </html>
