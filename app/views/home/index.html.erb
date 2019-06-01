@@ -1,5 +1,12 @@
 <div class="container">
     <h1>Hello World</h1>
+
+
+    <%= form_tag("/search", method: "post") do %>
+      <%= label_tag(:link, "Enter your item link.") %>
+      <%= text_field_tag(:link) %>
+      <%= submit_tag("Search") %>
+    <% end %>
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
 <script type="text/javascript">
