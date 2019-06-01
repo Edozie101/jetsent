@@ -1,0 +1,7 @@
+production:
+  kissmetrics:
+    key: d293042eb0ecd2a8587195aa1c87592642a9652d
+development:
+  kissmetrics:
+    key: d293042eb0ecd2a8587195aa1c87592642a9652d
+test:

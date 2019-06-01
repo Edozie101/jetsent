@@ -4,15 +4,25 @@
     <title>Jetsent</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= raw analytical.head_prepend_javascript %>
+        <title>Example</title>
+        <%= stylesheet_link_tag :all %>
+        <%= javascript_include_tag :defaults %>
+        <%= csrf_meta_tag %>
+        <% analytical.identify(current_user.id, :email=>current_user.email) if current_user %>
+        <%= raw analytical.head_append_javascript %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+      <%= raw analytical.body_prepend_javascript %>
+
       <p class="notice"><%= notice %></p>
          <p class="alert"><%= alert %></p>
     <%= yield %>
-    
+    <%= raw analytical.body_append_javascript %>
+
   </body>
 </html>
