@@ -1,3 +1,6 @@
 class HomeController < ApplicationController
-analytical
+    analytical
+    def index
+        analytical
+    end
 end
