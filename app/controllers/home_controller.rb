@@ -18,21 +18,19 @@ class HomeController < ApplicationController
         @item.name = title
         @item.website = link
         @item.image = images[0].attr('src')
+        @item.save()
         respond_to do |format|
-            if link
-                format.html { redirect_to :show_item, notice: 'We have successfully found your Product' }
+            if @item.save()
+                format.html { redirect_to item_path(@item), notice: 'We have successfully found your Product' }
             end
         end
 
     end
 
-    def show_item
-
-
-    end
     def item
 
     end
+
 
     private
 
