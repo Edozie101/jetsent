@@ -1,27 +1,102 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
-  <a class="navbar-brand" href="#">Rails chat tutorial</a>
+  <a class="navbar-brand" href="#">JetSent.io</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-bar-collapse" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <% if current_user %>
-    <div class="dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img class="avatar" src="<%= current_user.gravatar_url %>">
-        <%= current_user.username %>
-      </a>
 
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-      </div>
-    </div>
-  <% end %>
+    <ul class="navbar-nav ">
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-bell">
+            <span class="badge badge-primary">0</span>
 
-  <% if user_signed_in? %>
-    <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          </i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">ha</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-envelope">
+            <span class="badge badge-primary">1</span>
+          </i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">ha</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+
+
+      <li class="dropdown">
+
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user">
+          <span class="badge badge-primary">1</span>
+          </i>
+
+          <!--<img class="avatar" src="<%= current_user.gravatar_url %>">
+          <%= current_user.username %>
+          -->
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to 'Profile', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          <%= link_to 'Delivieries', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          <%= link_to 'Orders', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          <%= link_to 'Referals', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          <%= link_to 'Help', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+
+        </div>
+
+
+
+      </li>
+    </ul>
+
   <% else %>
-    <li><%= link_to "Sign in", new_user_session_path %></li>
-    <li><%= link_to "Sign up", new_user_registration_path %></li>
+    <ul class="navbar-nav">
+      <li>
+
+        <div class="btn">
+          <i class="fa fa-paper-plane">
+          </i>
+          <%= link_to "Make Money Travelling", new_user_session_path %>
+        </div>
+      </li>
+    <li>
+      <div class="btn">
+        <%= link_to "Sign in", new_user_session_path %>
+      </div>
+    </li>
+
+    <li>
+      <div class="btn">
+      <%= link_to "Register", new_user_registration_path %>
+      </div>
+    </li>
+
+      <li>
+        <div class="btn btn-primary">
+          <%= link_to "Create Order", new_user_registration_path %>
+        </div>
+      </li>
+
+    </ul>
   <% end %>
 
 </nav>
+
+
+<!------ Include the above in your HEAD tag ---------->
+
