@@ -21,7 +21,12 @@ class ItemController < ApplicationController
         @item.name = title
         @item.website = link
         @item.image = images[0].attr('src')
-        prices = site.search("span").select { |e| e.text.match(/Â[£|$]/)  }
+        prices = site.search("span").select { |e| e.text.match(/Â£/)  }
+        if prices.nil?
+            prices = site.search("div").select { |e| e.text.match(/Â[£|$]/)  }
+            prices.nil? ? prices = [" "] : prices = prices
+
+        end
         puts prices
         @item.price = prices[0].text
         @item.save()
