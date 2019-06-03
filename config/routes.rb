@@ -7,10 +7,18 @@ Rails.application.routes.draw do
       registrations: 'registrations'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "item#index"
+  #
+  #
+  resources :users
+  resources :travel
+  resources :order
+
+
+  root controller: :home, action: :index
+  resources :room_messages
+  resources :rooms
   post '/search' => 'item#search'
     resources :item, only: [:show, :edit, :create, :new, :index]
 
-
-
+  root to: "home#index"
 end

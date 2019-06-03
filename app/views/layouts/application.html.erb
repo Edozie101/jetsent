@@ -5,24 +5,34 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= raw analytical.head_prepend_javascript %>
-        <title>Jetsent</title>
+
+    <title>Jetsent</title>
         <%= csrf_meta_tag %>
         <% analytical.identify(current_user.id, :email=>current_user.email) if current_user %>
         <%= raw analytical.head_append_javascript %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <link rel="icon" href="/images/icon.png">
 
 
-  </head>
+  <link rel="manifest" href="/manifest.json" />
+<meta name="apple-mobile-web-app-capable" content="yes"></head>
 
   <body>
+  <div class="" id="div-nav">
+        <%= render partial: 'shared/navigation_bar' %>
+  </div>
+  <div>
+
       <%= raw analytical.body_prepend_javascript %>
-        <%= render "layouts/user_header" %>
-      <p class="notice"><%= notice %></p>
-         <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <%= raw analytical.body_append_javascript %>
+      <%= yield %>
+      <%= raw analytical.body_append_javascript %>
+
+  </div>
+
+  <%= render partial: 'shared/footer' %>
 
   </body>
 </html>

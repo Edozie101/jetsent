@@ -1,3 +1,508 @@
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+<link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script>
+    AOS.init({
+        duration: 800,
+        easing: 'slide',
+        once: true
+    });
+</script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<style media="screen">
+  a{
+    margin-left:  7px !important;
+    margin-right: 7px !important;
+  }
+  input{
+    margin-right: 7px !important;
+    margin-left: 7px !important;
+  }
+  .tab {
+    display: none;
+  }
+
+  .tab.active {
+    display:block;
+  }
+
+  a. active-btn{
+    background-color: #000;
+    text: white;
+  }
+
+  @media (max-width: 800px){
+    a.header-button{
+      margin-bottom: 8px ;
+      margin-top: 8px;
+    }
+
+  }
+
+
+  .btn-tab{
+    text-align: center;
+  }
+
+  .carousel{
+    width: auto !important;
+  }
+
+
+
+</style>
+
+
+<title>JetSent.io &mdash; </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+<style media="screen">
+  a{
+    margin-left:  7px !important;
+    margin-right: 7px !important;
+  }
+  input{
+    margin-right: 7px !important;
+  }
+</style>
+
+
+<div class="site-wrap">
+
+  <header class=" py-0 bg-white js-sticky-header site-navbar-target" style=" padding: 0px !important;" role="banner">
+
+    <div class="site-mobile-menu site-navbar-target ">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+
+
+
+    <p id="error"><%= flash[:error] %></p>
+    <p id="notice"><%= flash[:notice] %></p>
+  </header>
+</div>
+
+
+
+<div class="site-blocks-cover overlay" style="background-image: url(<%= asset_path 'hero_2.jpg' %>" data-aos="fade" data-stellar-background-ratio="0.5">
+
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+
+      <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
+
+        <div class="row mb-9">
+          <div class="col-md-9">
+            <h1 class="flash_1">Shop the World</h1>
+            <h1 class="flash_2">Earn as You Fly! </h1>
+            <p class="mb-5 lead font-weight-bold" style="text-align:left !important;">
+              JetSent connects shoppers and travelers to access the world's best products.</p>
+
+            <div>
+            <a href="#" class="btn header-button btn-white btn-outline-white py-3 px-5 mb-lg-0 d-block d-sm-inline-block">Shop Now</a>
+            <a href="#" class="btn header-button btn-white py-3 px-5 d-block d-sm-inline-block">Earn</a>
+            </div>
+            <br>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="site-section border-bottom" id="team-section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <!--<h3 class="section-sub-title">W</h3> -->
+        <h2 class="section-title mb-3">What We do!</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+        <div class="person text-center">
+          <%= image_tag("model_1_bg.jpg", :alt => "Image", :class => "img-fluid rounded w-75 mb-3") %>
+
+          <h3>Shoppers</h3>
+          <p class="position text-muted">Shop Abroad From Hom</p>
+          <p class="mb-4">Sit back and relax at home while you shop around the world. Whether looking to save, or buy luxury from abroad  - come to us for what you need!</p>
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+        <div class="person text-center">
+          <%= image_tag("product_1_bg.jpg", :alt => "Image", :class => "img-fluid rounded w-75 mb-3") %>
+
+          <h3>Travellers</h3>
+          <p class="position text-muted">Cover Cost of Flying</p>
+          <p class="mb-4">Want to make a bit of extra cash on your holiday? The average Traveller earns a commission of $50 per purchase - with
+            an average of 250$ per flight.</p>
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
+        <div class="person text-center">
+          <%= image_tag("model_5_bg.jpg", :alt => "Image", :class => "img-fluid rounded w-75 mb-3") %>
+
+          <h3> Travel Agents </h3>
+          <p class="position text-muted">Get Commissions</p>
+          <p class="mb-4">We are looking to Partner with you! Advertisers earn commission for referrals. Hot destinations include Brazil, Argentina, Emirates, Russia and China. We give 50%</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="site-section bg-light" id="services-section">
+
+
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h3 class="section-sub-title">Easy as 1-2-6</h3>
+        <h2 id="how_header" class="section-title mb-3">How it works!</h2>
+        <div class="lightswitch">
+          <a href="#travelers" class="btn btn-tab ">Travelers</a>
+          <a href="#shoppers" class="btn btn-tab active-btn">Shoppers</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="tabs">
+      <div class= "tab active"id="shoppers">
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4 underline"><span class="fas fa-link"></span></div>
+              <div>
+                <h3>1. Get A Link</h3>
+                <p>Find a link for a product anywhere in the world you like, and paste it into the search bar above! Proceed to Checkout.  </p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4 underline"><span class="fas fa-handshake"></span></div>
+              <div>
+                <h3>2. Match with Deliverer</h3>
+                <p>Once you have placed your order, a trusted deliverer will match with you to fulfil your orders.</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4 underline"><span class="fa fa-cart-arrow-down"></span></div>
+              <div>
+                <h3>3. Confirm Order Details</h3>
+                <p> Agree a Time, Pick-Up Location and Commission to Pay the deliverer. </p>
+                <hr>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- 2nd row -->
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4 underline"><span class="fa fa-money-bill-alt"></span></div>
+              <div>
+                <h3>4. Payment</h3>
+                <p>Pay using our third party escrow. The deliverer will not be
+                  paid until your order is fulfilled. </p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4 underline"><span class="fa fa-people-carry"></span></div>
+              <div>
+                <h3>5. Order Fulfilled</h3>
+                <p>We use tracking information to monitor whether an order is fulfilled. Once it is, payment from the escrow
+                  moves to the deliverer. </p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4 underline"><span class="fa fa-couch"></span></div>
+              <div>
+                <h3>6. Relax!</h3>
+                <p>Once your order has been fulfilled, you can kick back, relax and enjoy the product!</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div id="travelers" class="tab">
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4 underline"><span class="fas fa-calendar"></span></div>
+              <div>
+                <h3>1. Input your travel dates</h3>
+                <p>       Once we know when and where you’re flying to we can give you information on how best to save money on your trip? </p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4 underline"><span class="fa fa-search-dollar"></span></div>
+              <div>
+                <h3>2. Find products to take with you</h3>
+                <p>        Choose from the selection of products needed to deliver to the shopper and see your compensation. </p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4 underline"><span class="fas fa-handshake"></span></div>
+              <div>
+                <h3>    3. Settle the order</h3>
+                <p>     Once you have chosen an item, you must pay for the item and arrange a meetup. The shopper will be charged for the item and we hold their money on behalf of you until you deliver the item to the shopper.</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- 2nd row -->
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4 underline"><span class="fas fa-gift"></span></div>
+              <div>
+                <h3> 4. Collect the item</h3>
+                <p>        After ordering the item you need to collect the item whether it is being delivered to you or if you have to pick it up at a nearby point.</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4 underline"><span class="fas fa-plane"></span></div>
+              <div>
+                <h3>5. Fly to your destination</h3>
+                <p>        Fly back to your destination with the items in your bag, if you have to pay for customs then you will be reimbursed by the shopper.</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4 underline"><span class="fas fa-dollar-sign"></span></div>
+              <div>
+                <h3>6. Deliver and get paid.</h3>
+                <p> Once you’ve landed you should deliver the item to the appropriate location upon doing so you’ll get reimbursed for your item and paid commission!</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- count down to launch -->
+
+<div class="site-blocks-cover overlay get-notification" id="special-section" style="background-image: url(<%= asset_path "hero_2.jpg" %>); background-attachment: fixed; background-position: top;" data-aos="fade">
+  <div class="container">
+
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-7 text-center">
+        <h3 class="section-sub-title">Become a Jet-Setter</h3>
+        <h3 class="section-title text-white mb-4">Launch Countdown</h3>
+        <p class="mb-5 lead">Sign up before the exclusive offer expires. We are offering 50% discounts on commissions if you sign early. </p>
+
+        <div id="date-countdown" class="mb-5"></div>
+
+        <p><a href="#" class="btn btn-white btn-outline-white py-3 px-5 rounded0 mb-lg-0 mb-2 d-block d-sm-inline-block">Shop Now</a></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- About section! -->
+
+
+<div class="site-section" id="about-section">
+  <div class="container">
+    <div class="row align-items-lg-center">
+      <div class="col-md-8 mb-5 mb-lg-0 position-relative">
+        <%= image_tag("about_1.jpg", :alt => "Image", :class => "img-fluid") %>
+
+        <div class="experience">
+          <span class="year">Trusted E-Commerce</span>
+          <span class="caption">Venture Backed</span>
+        </div>
+      </div>
+      <div class="col-md-3 ml-auto">
+        <h3 class="section-sub-title">E-Commerce</h3>
+        <h2 class="section-title mb-3">About</h2>
+        <p class="mb-4">JetSent is on a mission to open up the world's markets.
+          Jetsent came about when one of the co-founders, Max, started thinking about the many trips family members from Africa and friends from China
+          had made to Europe to purchase luxury fashion. Driven from the frustrations of ordering abroad, we wanted to build an easier way for friends and family to shop
+          around the globe.
+        </p>
+        <p><a href="#services-section" class="btn btn-black btn-black--hover rounded0">Learn More</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="site-section testimonial-wrap" id="testimonials-section">
+  <div class="container">
+    <h3 class="section-sub-title">People Say</h3>
+    <h2 class="section-title mb-3">Testimonials</h2>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Carousel indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <!-- Wrapper for carousel items -->
+      <div class="carousel-inner">
+        <div class="item carousel-item active">
+          <div class="img-box"><%= image_tag("person_3.jpg", :alt => "Image") %></div>
+          <p class="testimonial">I love JetSent - it makes it so much easier to purchase from abroad. Got the Rollies in less than a week, and for a bargain. </p>
+          <p class="overview"><b>Michael Holz</b>Seo Analyst at <a href="#">OsCorp Tech.</a></p>
+          <div class="star-rating">
+            <ul class="list-inline">
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+            </ul>
+          </div>
+        </div>
+        <div class="item carousel-item">
+          <div class="img-box"><%= image_tag("person_2.jpg", :alt => "Image") %></div>
+          <p class="testimonial">I absolutely love traveling. South America was definitely on the top of my list. A friend told me about JetSent and when I heard that I could make money traveling to South America, I jumped on the opportunity.</p>
+          <p class="overview"><b>Paul Wilson</b>Media Analyst at <a href="#">SkyNet Inc.</a></p>
+          <div class="star-rating">
+            <ul class="list-inline">
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+            </ul>
+          </div>
+        </div>
+        <div class="item carousel-item">
+          <div class="img-box">        <%= image_tag("person_1.jpg", :alt => "Image") %>
+          </div>
+          <p class="testimonial">Do you know how a child looks when she get candy before lunch? That’s me today with my new Gucci purse. I got it from JetSent  and I was really surprised how much cheaper It was!</p>
+          <p class="overview"><b>Antonia Moreno</b>Web Developer at <a href="#">Circle Ltd.</a></p>
+          <div class="star-rating">
+            <ul class="list-inline">
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel controls -->
+      <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+        <i class="fa fa-angle-left"></i>
+      </a>
+      <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+        <i class="fa fa-angle-right"></i>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+
+</div>
+
+
+<script>
+    jQuery(document).ready(function() {
+        jQuery('.lightswitch a').on('click', function(e) {
+            console.log("fkafsd")
+            var currentAttrValue = jQuery(this).attr('href');
+            console.log("the attr value " + currentAttrValue);
+
+
+            // Show/Hide Tabs
+            jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+
+            // Change/remove current tab to active
+            jQuery(this).addClass('active-btn').siblings().removeClass('active-btn');
+
+            e.preventDefault();
+        });
+    });
+</script>
+<!-- .site-wrap -->
+
+
+
+
+
+
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+
+</body>
+</html>
+
+
+<!--
 <div class="container">
     <h1>Hello World</h1>
 
@@ -12,3 +517,4 @@
 <script type="text/javascript">
 var s = skrollr.init();
 </script>
+-->
