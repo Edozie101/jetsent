@@ -2075,8 +2075,9 @@ h1, h2, h3, h4, h5,
     bottom: 15px;
 }
 .carousel-indicators li, .carousel-indicators li.active {
-    width: 11px;
-    height: 11px;
+    width: 11px !important;
+    height: 11px !important;
+    border: 0px !important;
     margin: 1px 5px;
     border-radius: 50%;
 }
