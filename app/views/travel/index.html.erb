@@ -1,0 +1,29 @@
+<div class="container">
+  <div class=" container sign_reg_card">
+    <h1> Make money while travelling!</h1>
+
+    <%= form_with(url: travel_index_path, html: {class: "form-signin"}) do |f| %>
+
+
+    <div class="field input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3" style="width:90px;">From </span>
+    </div>
+    <%= f.text_field :start, autofocus: true, autocomplete: "email", class: 'form-control',  placeholder: "City or Country" %>
+    </div>
+
+      <div class="field input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon3" style="width:90px;">To </span>
+        </div>
+        <%= f.text_field :start, autofocus: true, autocomplete: "email", class: 'form-control',  placeholder: "City or Country"%>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Find Orders", class: 'btn btn-block nav-btn' %>
+      </div>
+
+    <% end %>
+  </div>
+
+</div>

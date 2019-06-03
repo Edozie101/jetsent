@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   #
   #
   resources :users
+  resources :travel
+  resources :order
+
+
   root controller: :home, action: :index
   resources :room_messages
   resources :rooms
