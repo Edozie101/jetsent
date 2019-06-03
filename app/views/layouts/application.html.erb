@@ -24,11 +24,9 @@
   <div class="" id="div-nav">
         <%= render partial: 'shared/navigation_bar' %>
   </div>
-  <div class="container">
+  <div>
 
       <%= raw analytical.body_prepend_javascript %>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
       <%= yield %>
       <%= raw analytical.body_append_javascript %>
 
