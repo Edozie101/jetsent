@@ -2,8 +2,7 @@
   "name": "jetsent",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5",
-    "node-sass": "^4.12.0"
+    "@rails/webpacker": "3.5"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
