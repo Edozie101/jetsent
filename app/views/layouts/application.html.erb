@@ -21,12 +21,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes"></head>
 
   <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
+  <div class="" id="div-nav">
         <%= render partial: 'shared/navigation_bar' %>
-      </div>
-    </div>
+  </div>
+  <div class="container">
 
       <%= raw analytical.body_prepend_javascript %>
         <p class="notice"><%= notice %></p>
@@ -35,5 +33,8 @@
       <%= raw analytical.body_append_javascript %>
 
   </div>
+
+  <%= render partial: 'shared/footer' %>
+
   </body>
 </html>

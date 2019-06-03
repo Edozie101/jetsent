@@ -1,15 +1,35 @@
+<div class="container sign_reg_card">
 <h2>Log in</h2>
+  <p>The world's products await!</p>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f| %>
+
+    <p>
+      <a href="" class="btn btn-block btn-google"> <i class="fab fa-google"></i> &nbsp; Login via Google</a>
+      <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i> &nbsp; Login via facebook</a>
+    </p>
+
+
+    <p class="divider-text">
+      <span class="bg-light">OR</span>
+    </p>
+
+    <div class="field input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3"><i class="fa fa-at"> </i></span>
+      </div>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control',  placeholder: "email" %>
+    </div>
+
+    <div class="field input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3"><i class="fa fa-lock"> </i></span>
+      </div>
+      <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: "password" %>
+    </div>
+
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
@@ -18,9 +38,13 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="actions">
+    <%= f.submit "Log in", class: 'btn btn-block nav-btn' %>
+    <%= render "devise/shared/links" %>
+  </div>
+
+<% end %>
+</div>
+
+
