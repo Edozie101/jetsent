@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  items: 
+  traveller: one
+  user: one
+  confirmed: false
+
+two:
+  items: 
+  traveller: two
+  user: two
+  confirmed: false

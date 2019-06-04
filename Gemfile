@@ -22,7 +22,7 @@ gem 'jquery-rails'
 gem 'serviceworker-rails'
 
 
-# redis 
+# redis
 gem 'redis'
 
 # Mechanize
@@ -42,7 +42,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'analytical'
 #Use Devise for Authentication
 gem 'devise'
-
+#Use Bulma for importation 
+gem 'bulma'
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
 
