@@ -23,7 +23,11 @@
      @return m#{i}n(#{$numbers});
 
  }
-
+ @supports (right: max(15px, env(safe-area-inset-right))) {
+   .example-class {
+     right: max(15px, env(safe-area-inset-right));
+   }
+ }
 
 @import "bulma";
 @import "navbar";
