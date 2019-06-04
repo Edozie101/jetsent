@@ -21,7 +21,6 @@ gem 'jquery-rails'
 gem 'cancancan'
 gem 'serviceworker-rails'
 
-
 # redis
 gem 'redis'
 

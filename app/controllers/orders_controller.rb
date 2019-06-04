@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    require 'Mechanize'
+    require 'mechanize'
     before_action :set_params, only: [:show,:edit,:destroy]
 
     def index
