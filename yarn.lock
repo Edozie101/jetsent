@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@fancyapps/fancybox@git+ssh://git@github.com:light-flight/fancybox.git#unquote-max-css-function":
+  version "3.5.7"
+  resolved "git+ssh://git@github.com:light-flight/fancybox.git#aaa94ac0d7e334cb4b591cc78d9fc5376ef99a4d"
+
 "@rails/webpacker@3.5":
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-3.5.5.tgz#8911c66bcefc8bc6b91270e92f0d39e3c2d43116"
