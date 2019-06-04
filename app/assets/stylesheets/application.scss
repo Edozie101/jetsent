@@ -20,3 +20,7 @@
 @import "singup_reg";
 @import "footer";
 @import "bootstrap";
+
+.example {
+  right: unquote('max(#{$global-margin}, env(safe-area-inset-right))');
+}
