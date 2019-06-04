@@ -22,5 +22,5 @@
 @import "bootstrap";
 
 .example {
-  right: unquote('max(#{$global-margin}, env(safe-area-inset-right))');
+  right: max(15px, env(safe-area-inset-right));
 }
