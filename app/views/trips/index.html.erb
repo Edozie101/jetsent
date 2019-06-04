@@ -1,0 +1,11 @@
+<div class="container">
+
+    <%= for trip in @trips do %>
+        <div class="card">
+            <%= trip.from %>
+            <%= trip.to %>
+            <%= trip.date %>
+        </div>
+
+    <% end %>
+</div>

@@ -1,0 +1,27 @@
+
+<div class="container">
+    <%= simple_form_for(@order) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <div class="form-inputs">
+        <%= f.input :name, value: "#{@order.name}" %>
+      </div>
+      <div class="form-inputs">
+         <%= f.input :price, value: "#{@order.price}"  %>
+       </div>
+
+       <div class="form-inputs">
+          <%= f.input :pickup_location, placeholder: "Enter the pickup country"  %>
+        </div>
+        <div class="form-inputs">
+           <%= f.input :drop_off_location, placeholder: "Enter where you would like to collect the item"  %>
+         </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+
+    <% end %>
+
+</div>
