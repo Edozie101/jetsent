@@ -14,25 +14,23 @@
  *= require_tree .
  *= require_self
  */
+ @function max($numbers...) {
+     @return m#{a}x(#{$numbers});
+
+ }
+
+ @function min($numbers...){
+     @return m#{i}n(#{$numbers})
+
+ }
+
+ .example {
+   right: max(15px, env(safe-area-inset-right));
+ }
+
 @import "bulma";
 @import "navbar";
 @import "chat_styles";
 @import "singup_reg";
 @import "footer";
 @import "bootstrap";
-
-
-
-@function max($numbers...) {
-    @return m#{a}x(#{$numbers});
-
-}
-
-@function min($numbers...){
-    @return m#{i}n(#{$numbers})
-
-}
-
-.example {
-  right: max(15px, env(safe-area-inset-right));
-}
