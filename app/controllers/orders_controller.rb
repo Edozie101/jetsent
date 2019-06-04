@@ -21,16 +21,17 @@ class OrdersController < ApplicationController
         if prices.nil?
             prices = site.search("div").select { |e| e.text.match(/Â[£|$]/)  }
             prices.nil? ? prices = [" "] : prices = prices
-
+            @order.price = prices[0].text
+        else
+            @order.price =prices[0].text
         end
-        @order.price = prices[0].text
 
         puts "#{@order.price} is the price"
-        respond_to do |format|
-            if @order.save
-                format.html{redirect_to edit_order_url}
-            end
-        end
+        #respond_to do |format|
+        #    if @order.save
+        #        format.html{redirect_to edit_order_url}
+        #    end
+        #end
 
 
     end
