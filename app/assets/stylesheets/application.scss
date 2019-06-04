@@ -24,9 +24,6 @@
 
  }
 
- .example {
-   right: max(15px, env(safe-area-inset-right));
- }
 
 @import "bulma";
 @import "navbar";
