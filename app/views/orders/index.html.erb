@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="sign_reg_card">
+
+  <h1>Shop Products from USA and save up to 40%</h1>
+    <p style="text-align: left !important;"><i class="fa fa-check-circle"></i>   Delivered by verified trusted traveler</p>
+    <p style="text-align: left !important;"><i class="fa fa-check-circle"></i>   Receive your product in 1–2 weeks</p>
+
+   <%= form_for( @order, method: "post")  do |f| %>
+    <div class="input-group mb-3">
+      <!-- <input type="text" class="form-control" placeholder="Enter In Your Link" aria-label="Recipient's username" aria-describedby="basic-addon2"> -->
+      <%= f.text_field :website, autofocus: true, placeholder: "Enter In Your Link", aria_label: "Recipient's username ", aria_describedby: "basic-addon2",  class: 'form-control'%>
+
+      <div class="input-group-append">
+          <%= f.submit "Order", class: 'btn btn-outline-secondary' %>
+      </div>
+    </div>
+    <% end  %>
+  </div>
+</div>

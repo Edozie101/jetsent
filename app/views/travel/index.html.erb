@@ -2,21 +2,28 @@
   <div class=" container sign_reg_card">
     <h1> Make money while travelling!</h1>
 
-    <%= form_with(url: travel_index_path, html: {class: "form-signin"}) do |f| %>
+    <%= form_for( @trip , html: {class: "form-signin"}, method: "post" ) do |f| %>
 
 
     <div class="field input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon3" style="width:90px;">From </span>
     </div>
-    <%= f.text_field :start, autofocus: true, autocomplete: "email", class: 'form-control',  placeholder: "City or Country" %>
+    <%= f.text_field :from, autofocus: true, autocomplete: "city", class: 'form-control',  placeholder: "Enter your departure City" %>
     </div>
 
       <div class="field input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon3" style="width:90px;">To </span>
         </div>
-        <%= f.text_field :start, autofocus: true, autocomplete: "email", class: 'form-control',  placeholder: "City or Country"%>
+        <%= f.text_field :to, autofocus: true, autocomplete: "city", class: 'form-control',  placeholder: "Enter your arrival City"%>
+      </div>
+
+      <div class="field input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon3" style="width:90px;">When </span>
+        </div>
+        <%= f.date_field :date, autofocus: true, class: 'form-control'%>
       </div>
 
       <div class="actions">

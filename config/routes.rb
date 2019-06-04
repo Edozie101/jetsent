@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :carts
   get 'store/index'
   devise_for :travellers, controllers: {
       registrations: 'registrations'
@@ -6,13 +7,19 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
       registrations: 'registrations'
   }
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #
   #
   resources :users
   resources :travel
-  resources :order
+  resources :orders
 
+  resources :trips, only: [:create,:destroy, :edit,:show, :new], controllers:{
+      travel: 'travel'
+  }
+  get :trips, action: :show, controller: :travel
 
   root controller: :home, action: :index
   resources :room_messages
