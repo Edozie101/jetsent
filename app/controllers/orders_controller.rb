@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
 
     def index
         @order = Order.new()
+        puts @order.methods
     end
     def new
         @order = Order.new()

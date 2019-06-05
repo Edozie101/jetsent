@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   resources :carts
   get 'store/index'
-  devise_for :travellers, controllers: {
-      registrations: 'registrations'
-  }
+
   devise_for :users, controllers: {
       registrations: 'registrations'
   }
