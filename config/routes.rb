@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   #
   resources :users
   resources :travel
-  resources :orders
+  resources :orders, defaults: { format: 'html' }
 
   resources :trips, only: [:create,:destroy, :edit,:show, :new], controllers:{
       travel: 'travel'

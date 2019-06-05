@@ -1,1 +1,21 @@
-<h1>show</h1>
+<p id="error"><%= flash[:error] %></p>
+<p id="notice"><%= flash[:notice] %></p>
+<div class="container">
+  <div class=" container sign_reg_card">
+    <h1> Your order is registed ! </h1>
+
+
+
+ <div class="card" style="width: 18rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name: <%= @order.name %></li>
+        <li class="list-group-item">Website: <%= @order.website %></li>
+        <li class="list-group-item">Image: <%= @order.image %></li>
+      </ul>
+    </div>
+
+
+
+  </div>
+
+</div>

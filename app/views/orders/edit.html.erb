@@ -5,17 +5,17 @@
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
       <div class="form-inputs">
-        <%= f.input :name, value: "#{@order.name}" %>
+        <%= f.input :name, input_html:{value: "#{@order.name}"}  %>
       </div>
       <div class="form-inputs">
-         <%= f.input :price, value: "#{@order.price}"  %>
+         <%= f.input :price, input_html:{value: "#{@order.price}"}   %>
        </div>
 
        <div class="form-inputs">
           <%= f.input :pickup_location, placeholder: "Enter the pickup country"  %>
         </div>
         <div class="form-inputs">
-           <%= f.input :drop_off_location, placeholder: "Enter where you would like to collect the item"  %>
+           <%= f.input :drop_off_location, placeholder: "Enter where  would you like to collect the item"  %>
          </div>
 
       <div class="form-actions">
