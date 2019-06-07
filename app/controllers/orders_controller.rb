@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
         link = params[:order][:website]
         doc = Nokogiri::HTML(open(link))
         site = agent.get(link)
-        image = doc.xpath('//meta[@property="og:image"]').first.value
+        image = doc.xpath('//meta[@property="og:image"]/@content').first.value
         if !image.match(/http/)
             image = "https:" + image
         end
