@@ -21,11 +21,11 @@ class ItemController < ApplicationController
         @item.name = title
         @item.website = link
         @item.image = images[0].attr('src')
-        prices = site.search("span").select { |e| e.text.match(/Â£/)  }
+
+        prices = site.search("span").select { |e| e.text.match(/Â£/)}
         if prices.nil?
             prices = site.search("div").select { |e| e.text.match(/Â[£|$]/)  }
             prices.nil? ? prices = [" "] : prices = prices
-
         end
         puts prices
         @item.price = prices[0].text
@@ -34,7 +34,6 @@ class ItemController < ApplicationController
             if @item.save()
                 format.html { redirect_to @item, notice: 'We have successfully found your Product' }
                 format.json { render :show, status: :created, location: @item }
-
             end
         end
 

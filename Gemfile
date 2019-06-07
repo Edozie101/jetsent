@@ -20,7 +20,6 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'cancancan'
 gem 'serviceworker-rails'
-
 # redis
 gem 'redis'
 
@@ -41,7 +40,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'analytical'
 #Use Devise for Authentication
 gem 'devise'
-#Use Bulma for importation 
+#Use Bulma for importation
 gem 'bulma'
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
