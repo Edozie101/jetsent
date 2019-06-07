@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
         @order.name.nil? ? @order.name =  title : @order.name = "Item name not found"
         @order.website.nil? ? @order.website = link : @order.website = link
         @order.user_id = current_user.id
-        @order.image = image 
+        @order.image = image
 
 
         #
@@ -49,7 +49,7 @@ class OrdersController < ApplicationController
             respond_to do |format|
                     format.html { redirect_to @order }
             end
-        else
+        
 
 
             respond_to do |format|
