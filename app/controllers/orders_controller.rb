@@ -38,19 +38,16 @@ class OrdersController < ApplicationController
             # are there prices on the website divs
             prices = site.search("div").select { |e| e.text.match(/Â[£|$]/)  }
             prices[0].nil? ? @order.price = " Not Found " : prices = prices
-
-
         end
         if !@order.price
             @order.price = prices[0].text
         end
-
-        puts "#{@order.price} is the price"
+        if
             respond_to do |format|
                     format.html { redirect_to @order }
             end
-        
 
+        else
 
             respond_to do |format|
                     format.html { redirect_to new_order_url }
