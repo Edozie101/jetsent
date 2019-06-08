@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
             @order.name = @driver.find_elements(css: "h1")[0].text
             @order.image = @driver.find_elements(css: "img.a-dynamic-image")[0].attribute("src")
             prices = @driver.find_elements(css: "span")
-            p2 = prices.map(|a| a.text.match(/Â[£|$]/))
+            p2 = prices.map{|a| a.text.match(/Â[£|$]/)}
             @order.price = p2[0].text
 
 
