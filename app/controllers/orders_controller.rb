@@ -25,13 +25,12 @@ class OrdersController < ApplicationController
 
         if(link.match(/amazon/))
             @driver = Selenium::WebDriver.for :chrome, options: options
-            @driver.navigate_to link
+            @driver.navigate.to link
             @order.name = @driver.find_elements(css: "h1")[0].text
             @order.image = @driver.find_elements(css: "img.a-dynamic-image")[0].attribute("src")
             prices = @driver.find_elements(css: "span")
             p2 = prices.map{|a| a.text.match(/Â[£|$]/)}
             @order.price = p2[0].text
-
 
         else
             agent = Mechanize.new
