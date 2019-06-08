@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
         if !@order.price
             @order.price = prices[0].text
         end
-        if
+        if @order.save!
             respond_to do |format|
                     format.html { redirect_to @order }
             end
