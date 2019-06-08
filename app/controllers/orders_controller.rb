@@ -22,22 +22,26 @@ class OrdersController < ApplicationController
         @order = Order.new(permit_through)
         @order.website.nil? ? @order.website = link : @order.website = link
         @order.user_id = current_user.id
-
+        @driver = Selenium::WebDriver.for :chrome, options: options
+        @driver.navigate.to link
         if(link.match(/amazon/))
-            @driver = Selenium::WebDriver.for :chrome, options: options
-            @driver.navigate.to link
+            puts @driver.find_elements(css: "h1")[0].text
             @order.name = @driver.find_elements(css: "h1")[0].text
             @order.image = @driver.find_elements(css: "img.a-dynamic-image")[0].attribute("src")
             prices = @driver.find_elements(css: "span")
-            p2 = prices.map{|a| a.text.match(/Â[£|$]/)}
+            p2 = prices.select{|a| a.text.match(/[£|$]/)}
             @order.price = p2[0].text
+
+        elsif(link.match(/facebook/))
+            @driver.manage.window.resize_to(800,800)
+            @driver.save_screenshot("/app/assets/screenshots/" + link + ".jpg")
 
         else
             agent = Mechanize.new
             doc = Nokogiri::HTML(open(link))
             site = agent.get(link)
             image = doc.xpath('//meta[@property="og:image"]/@content').first.value
-            prices = site.search("span").select { |e| e.text.match(/Â£/)  }
+            prices = site.search("span").select { |e| e.text.match(/£|$/)  }
             title = site.search("h1").text
 
             @order.name.nil? ? @order.name =  title : @order.name = "Item name not found"
