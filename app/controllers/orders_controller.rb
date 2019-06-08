@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
     require 'mechanize'
     require 'nokogiri'
+    require 'selenium-webdriver'
+
     before_action :set_params, only: [:show,:edit,:destroy]
 
 
@@ -14,35 +16,54 @@ class OrdersController < ApplicationController
     end
 
     def create
-        agent = Mechanize.new
         link = params[:order][:website]
-        doc = Nokogiri::HTML(open(link))
-        site = agent.get(link)
-        image = doc.xpath('//meta[@property="og:image"]/@content').first.value
-        if !image.match(/http/)
-            image = "https:" + image
-            puts "image"
-        end
-        images = site.search("img")
-        title = site.search("h1").text
+        options = Selenium::WebDriver::Chrome::Options.new
+        options.add_argument('--headless')
         @order = Order.new(permit_through)
-        @order.name.nil? ? @order.name =  title : @order.name = "Item name not found"
         @order.website.nil? ? @order.website = link : @order.website = link
         @order.user_id = current_user.id
-        @order.image = image
+
+        if(link.match(/amazon/))
+            @driver = Selenium::WebDriver.for :chrome, options: options
+            @driver.navigate_to link
+            @order.name = @driver.find_elements(css: "h1")[0].text
+            @order.image = @driver.find_elements(css: "img.a-dynamic-image")[0].attribute("src")
+            prices = @driver.find_elements(css: "span")
+            p2 = prices.map(|a| a.text.match(/Â[£|$]/))
+            @order.price = p2[0].text
+
+
+        else
+            agent = Mechanize.new
+            doc = Nokogiri::HTML(open(link))
+            site = agent.get(link)
+            image = doc.xpath('//meta[@property="og:image"]/@content').first.value
+            prices = site.search("span").select { |e| e.text.match(/Â£/)  }
+            title = site.search("h1").text
+
+            @order.name.nil? ? @order.name =  title : @order.name = "Item name not found"
+            @order.image = image
+            if !image.match(/http/)
+                image = "https:" + image
+                puts "image"
+            end
+            if prices[0].nil?
+                # are there prices on the website divs
+                prices = site.search("div").select { |e| e.text.match(/Â[£|$]/)  }
+                prices[0].nil? ? @order.price = " Not Found " : prices = prices
+            end
+            if !@order.price
+                @order.price = prices[0].text
+            end
+
+
+        end
+
 
 
         #
-        prices = site.search("span").select { |e| e.text.match(/Â£/)  }
         # are there prices on the website sppans
-        if prices[0].nil?
-            # are there prices on the website divs
-            prices = site.search("div").select { |e| e.text.match(/Â[£|$]/)  }
-            prices[0].nil? ? @order.price = " Not Found " : prices = prices
-        end
-        if !@order.price
-            @order.price = prices[0].text
-        end
+
         if @order.save!
             respond_to do |format|
                     format.html { redirect_to @order }
