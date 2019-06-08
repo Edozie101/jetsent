@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
         image = doc.xpath('//meta[@property="og:image"]/@content').first.value
         if !image.match(/http/)
             image = "https:" + image
+            puts "image"
         end
         images = site.search("img")
         title = site.search("h1").text
