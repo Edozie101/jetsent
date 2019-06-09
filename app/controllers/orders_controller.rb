@@ -20,18 +20,20 @@ class OrdersController < ApplicationController
 
         @order = Order.new(permit_through)
         @order.website.nil? ? @order.website = link : @order.website = link
-        @order.user_id = current_user.id
+        if current_user
+            @order.user_id = current_user.id
+        else
+            @order.user_id = "N/A"
+        end
 
         if(link.match(/amazon/))
             options = Selenium::WebDriver::Chrome::Options.new
             options.add_argument('--headless')
             @driver = Selenium::WebDriver.for :chrome, options: options
             @driver.navigate.to link
-            puts @driver.find_elements(css: "h1")[0].text
             @order.name = @driver.find_elements(css: "h1")[0].text
             @order.image = @driver.find_elements(css: "img.a-dynamic-image")[0].attribute("src")
-            prices = @driver.find_elements(css: "span")
-            p2 = prices.select{|a| a.text.match(/[£|$]/)}
+            prices = @driver.find_elements(css: "span.a-color-price")
             @order.price = p2[0].text
 
         elsif(link.match(/facebook/))
@@ -69,7 +71,8 @@ class OrdersController < ApplicationController
         #
         # are there prices on the website sppans
 
-        if @order.save!
+        if @order.user_id != "N/A"
+            @order.save!
             respond_to do |format|
                     format.html { redirect_to @order }
             end
@@ -77,7 +80,7 @@ class OrdersController < ApplicationController
         else
 
             respond_to do |format|
-                    format.html { redirect_to new_order_url }
+                    format.html { redirect_to new_order_url(@order) }
             end
         end
 
@@ -85,6 +88,11 @@ class OrdersController < ApplicationController
     end
 
     def edit
+
+
+    end
+
+    def update
 
 
     end
