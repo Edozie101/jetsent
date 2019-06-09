@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-light justify-content-between">
-  <h2 class="mb-0 site-logo" style="position: initial;padding-bottom: 0px;"><a href="#" class="mb-0">JetSent<span class="text-primary">.</span>io</a></h2>
+  <h2 class="mb-0 site-logo" style="position: initial;padding-bottom: 0px;"><a href="/" class="mb-0">JetSent<span class="text-primary">.</span>io</a></h2>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-bar-collapse" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -83,7 +83,7 @@
       <li>
 
         <div class="btn">
-          <%= link_to "travel", new_user_session_path %>
+          <%= link_to "travel", travel_index_path %>
           <i class="fa fa-paper-plane">
           </i>
         </div>
@@ -103,7 +103,7 @@
     </li>
 
       <li>
-          <%= link_to "Create Order", new_user_registration_path, class: "btn nav-btn"%>
+          <%= link_to "Create Order", orders_path, class: "btn nav-btn"%>
       </li>
 
     </ul>
