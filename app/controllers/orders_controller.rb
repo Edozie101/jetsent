@@ -17,14 +17,16 @@ class OrdersController < ApplicationController
 
     def create
         link = params[:order][:website]
-        options = Selenium::WebDriver::Chrome::Options.new
-        options.add_argument('--headless')
+
         @order = Order.new(permit_through)
         @order.website.nil? ? @order.website = link : @order.website = link
         @order.user_id = current_user.id
-        @driver = Selenium::WebDriver.for :chrome, options: options
-        @driver.navigate.to link
+
         if(link.match(/amazon/))
+            options = Selenium::WebDriver::Chrome::Options.new
+            options.add_argument('--headless')
+            @driver = Selenium::WebDriver.for :chrome, options: options
+            @driver.navigate.to link
             puts @driver.find_elements(css: "h1")[0].text
             @order.name = @driver.find_elements(css: "h1")[0].text
             @order.image = @driver.find_elements(css: "img.a-dynamic-image")[0].attribute("src")
