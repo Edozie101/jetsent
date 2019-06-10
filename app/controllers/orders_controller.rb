@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
     def my_orders
         @orders = Order.where(user_id: current_or_guest_user.id)
     end
-    
+
 
     def new
         @order = Order.new()
@@ -28,12 +28,19 @@ class OrdersController < ApplicationController
         @order.website.nil? ? @order.website = link : @order.website = link
         @order.user_id = current_or_guest_user.id
 
+
         if(link.match(/amazon/))
             # Selenium Webdriver mode
+            begin
+                options = Selenium::WebDriver::Chrome::Options.new
+                options.add_argument('--headless')
+                @driver = Selenium::WebDriver.for :chrome, options: options
+            rescue Selenium::WebDriver::Error::SessionNotCreatedError
+                options = Selenium::WebDriver::Safari::Options.new.add_argument('--headless')
+                @driver = Selenium::WebDriver.for :safari, options: options
+            end
 
-            options = Selenium::WebDriver::Chrome::Options.new
-            options.add_argument('--headless')
-            @driver = Selenium::WebDriver.for :chrome, options: options
+
             @driver.navigate.to link
             @order.name = @driver.find_elements(css: "h1")[0].text
             @order.image = @driver.find_elements(css: "img.a-dynamic-image")[0].attribute("src")
