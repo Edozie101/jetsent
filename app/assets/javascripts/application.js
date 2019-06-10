@@ -19,4 +19,3 @@
 //= require_tree .
 //= require serviceworker-companion
 //= require gmaps-auto-complete
-//= require ./gmapsautocomplete
