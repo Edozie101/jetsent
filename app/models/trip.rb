@@ -1,5 +1,5 @@
 class Trip < ApplicationRecord
-    belongs_to :user, inverse_of: :trip
+    belongs_to :user, inverse_of: :trips
     validates :date, presence: true
 
 

@@ -54,9 +54,18 @@ class OrdersController < ApplicationController
             @driver.save_screenshot("/app/assets/screenshots/" + link + ".jpg")
 
         else
-            agent = Mechanize.new
-            doc = Nokogiri::HTML(open(link))
-            site = agent.get(link)
+            #Try to access link with Mechanize
+            begin
+                agent = Mechanize.new
+                doc = Nokogiri::HTML(open(link))
+                site = agent.get(link)
+            rescue
+
+                respond_to do |format|
+                    format.html{ redirect_to orders_url, status: "There seems to be an error with your link " }
+                end
+            end
+
             image = doc.xpath('//meta[@property="og:image"]/@content').first.value
             prices = site.search("span").select { |e| e.text.match(/£|$/)  }
             title = site.search("h1").text
@@ -107,7 +116,13 @@ class OrdersController < ApplicationController
 
     def update
 
-
+        respond_to do |format|
+            if @order.update(permit_through)
+                format.html{redirect_to @order, notice: "Your Order has been updated"}
+            else
+                format.html{redirect_to edit_order_path(@order), status: "Something is wrong with your order"}
+            end
+        end
     end
 
 
@@ -118,7 +133,7 @@ class OrdersController < ApplicationController
     end
 
     def permit_through
-        params.require(:order).permit(:name,:website,:image, :pickup_location, :drop_off_location)
+        params.require(:order).permit(:name,:website,:image,:price, :pickup_location, :drop_off_location)
     end
 
 

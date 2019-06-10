@@ -3,10 +3,11 @@
         <div class="row">
             <% @orders.each do |order| %>
                 <div class="card">
-                    <a href="<%= order_path(order)%>"><%= image_tag order.image %></a>
+                    <a href="<%= order_path(order)%>"><img src="<%= order.image %> " class="img-fluid" style="max-height: 400px; max-width: 100%" alt=""></a>
                     <strong class="card-text"><%= order.name %></strong>
-                    <p class="card-text"> <%= order.pickup_location %> </p>
-                    <p class="card-text"> <%= order.drop_off_location %> </p>
+                    <p class="card-text">  Item Website  <%= order.website  %> </p>
+                    <p class="card-text">  Pickup Location <%= order.pickup_location %> </p>
+                    <p class="card-text"> Drop Off Location <%= order.drop_off_location %> </p>
                     <%= order_status(order.confirmed) %>
 
                 </div>
@@ -15,7 +16,6 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <!-- <%= paginate @orders %> -->
           </div>
         </div>
     </div>

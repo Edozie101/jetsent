@@ -13,6 +13,7 @@
  *=
  *= require_tree .
  *= require_self
+ *= require gmaps-auto-complete
  */
  // @function max($numbers...) {
  //     @return m#{a}x(#{$numbers});
@@ -36,3 +37,9 @@
 @import "singup_reg";
 @import "footer";
 @import "bootstrap";
+
+
+#gmaps-canvas{
+    height: 400px;
+    width: 100%
+}

@@ -13,7 +13,7 @@ class TripsController < ApplicationController
   def create
 
       @trip = Trip.new()
-      @trip.user_id = current_user.id
+      @trip.user_id = current_or_guest_user.id
       @trip.to = params[:trip][:to]
       @trip.from = params[:trip][:from]
       @trip.date = params[:trip][:date]

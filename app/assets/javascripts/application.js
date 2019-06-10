@@ -18,3 +18,5 @@
 //= require ./room
 //= require_tree .
 //= require serviceworker-companion
+//= require jquery_ujs
+//= require gmaps-auto-complete

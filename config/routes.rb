@@ -27,5 +27,5 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  get '/my_orders' => 'order#my_orders'
+  get '/my_orders' => 'orders#my_orders'
 end

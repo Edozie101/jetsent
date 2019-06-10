@@ -10,12 +10,15 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Name: <%= @order.name %></li>
         <li class="list-group-item">Website: <%= @order.website %></li>
-        <li class="list-group-item">Image: <img src="<%= @order.image%>" alt="No Image"></li>
+        <li class="list-group-item">Image: <img src="<%= @order.image%>" style = "max-height: 400px;
+    max-width: 100%;" alt="No Image"></li>
         <li class="list-group-item">Price <img src="<%= @order.price %>"</li>
         <li class="list-group-item">Status <%= order_status(@order.confirmed) %> </li>
-
+        <li class="list-group-item"> User <%= guest_status(@order.user.guest) %> </li>
       </ul>
     </div>
+    <%= link_to("Confirm Order", edit_order_path(@order)) %>
+    <%= link_to("My Orders", my_orders_url) %>
 
 
 
