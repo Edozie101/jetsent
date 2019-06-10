@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_124910) do
+ActiveRecord::Schema.define(version: 2019_06_10_170152) do
 
   create_table "carts", force: :cascade do |t|
     t.string "orders"
@@ -28,8 +28,25 @@ ActiveRecord::Schema.define(version: 2019_06_10_124910) do
     t.string "image"
   end
 
-# Could not dump table "orders" because of following StandardError
-#   Unknown type 'link' for column 'website'
+  create_table "orders", force: :cascade do |t|
+    t.text "items"
+    t.integer "user_id"
+    t.datetime "remember_created_at"
+    t.string "confirmed", default: "unconfirmed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "website"
+    t.string "image"
+    t.string "price"
+    t.string "pickup_location"
+    t.string "drop_off_location"
+    t.integer "traveller_id"
+    t.date "preferred_date_start"
+    t.date "preferred_date_end"
+    t.index ["traveller_id"], name: "index_orders_on_traveller_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"

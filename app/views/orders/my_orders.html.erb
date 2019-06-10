@@ -1,0 +1,22 @@
+<div class="album text-muted">
+    <div class="container">
+        <div class="row">
+            <% @orders.each do |order| %>
+                <div class="card">
+                    <a href="<%= order_path(order)%>"><%= image_tag order.image %></a>
+                    <strong class="card-text"><%= order.name %></strong>
+                    <p class="card-text"> <%= order.pickup_location %> </p>
+                    <p class="card-text"> <%= order.drop_off_location %> </p>
+                    <%= order_status(order.confirmed) %>
+
+                </div>
+
+            <% end %>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- <%= paginate @orders %> -->
+          </div>
+        </div>
+    </div>
+</div>

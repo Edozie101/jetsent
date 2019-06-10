@@ -26,4 +26,6 @@ Rails.application.routes.draw do
     resources :item, only: [:show, :edit, :create, :new, :index]
 
   root to: "home#index"
+
+  get '/my_orders' => 'order#my_orders'
 end

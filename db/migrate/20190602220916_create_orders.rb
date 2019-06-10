@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.text :items, array: true
       t.references :user, foreign_key: true
       t.datetime :remember_created_at
-      t.boolean :confirmed
+      t.string :confirmed
 
       t.timestamps
     end

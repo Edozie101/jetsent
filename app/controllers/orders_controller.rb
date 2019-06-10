@@ -11,6 +11,12 @@ class OrdersController < ApplicationController
         @order = Order.new()
         puts @order.methods
     end
+
+    def my_orders
+        @orders = Order.where(user_id: current_or_guest_user.id)
+    end
+    
+
     def new
         @order = Order.new()
     end
@@ -20,7 +26,7 @@ class OrdersController < ApplicationController
 
         @order = Order.new(permit_through)
         @order.website.nil? ? @order.website = link : @order.website = link
-        @order.user_id = current_or_guest_user.id 
+        @order.user_id = current_or_guest_user.id
 
         if(link.match(/amazon/))
             # Selenium Webdriver mode

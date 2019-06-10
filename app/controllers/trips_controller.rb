@@ -1,8 +1,14 @@
 class TripsController < ApplicationController
     before_action :set_params, only: [:edit,:show]
 
-    def index
-    end
+  def index
+       @trips = Trips.last(10)
+  end
+
+  def my_trips
+      @trips = Trips.where(user_id: current_or_guest_user.id)
+
+  end
 
   def create
 
