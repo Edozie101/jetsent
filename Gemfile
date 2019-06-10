@@ -38,8 +38,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'jquery-rails'
-gem 'gmaps-autocomplete-rails'
-
+gem 'gmaps-autocomplete-rails', :git => "https://github.com/kristianmandrup/gmaps-autocomplete-rails.git"
 gem 'analytical'
 #Use Devise for Authentication
 gem 'devise'
