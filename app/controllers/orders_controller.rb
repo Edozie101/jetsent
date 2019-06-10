@@ -20,13 +20,11 @@ class OrdersController < ApplicationController
 
         @order = Order.new(permit_through)
         @order.website.nil? ? @order.website = link : @order.website = link
-        if current_user
-            @order.user_id = current_user.id
-        else
-            @order.user_id = "N/A"
-        end
+        @order.user_id = current_or_guest_user.id 
 
         if(link.match(/amazon/))
+            # Selenium Webdriver mode
+
             options = Selenium::WebDriver::Chrome::Options.new
             options.add_argument('--headless')
             @driver = Selenium::WebDriver.for :chrome, options: options
@@ -37,6 +35,8 @@ class OrdersController < ApplicationController
             @order.price = p2[0].text
 
         elsif(link.match(/facebook/))
+            # Selenium screenshot mode
+
             @driver.manage.window.resize_to(800,800)
             @driver.save_screenshot("/app/assets/screenshots/" + link + ".jpg")
 
