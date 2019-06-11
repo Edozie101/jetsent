@@ -6,7 +6,8 @@ class TripsController < ApplicationController
   end
 
   def my_trips
-      @trips = Trips.where(user_id: current_or_guest_user.id)
+
+      @trips = Trip.where(user_id: current_or_guest_user.id)
 
   end
 

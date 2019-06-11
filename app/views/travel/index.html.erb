@@ -1,3 +1,11 @@
+<% content_for :javascript_includes do %>
+
+<script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6Zm4SmPBT4SRR4t9eaiOPe6EpPGOBfAo&callback=initMap"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<%= javascript_include_tag "trip.js" %>
+<% end %>
+
 <div class="container">
   <div class=" container sign_reg_card">
     <h1> Make money while travelling!</h1>
@@ -9,14 +17,14 @@
     <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon3" style="width:90px;">From </span>
     </div>
-    <%= f.text_field :from, autofocus: true, autocomplete: "city", class: 'form-control',  placeholder: "Enter your departure City" %>
+    <%= f.text_field :from, autofocus: true, class: 'form-control',  placeholder: "Enter your departure City" , :input_html =>{:id => 'gmaps-input-address'} %>
     </div>
 
       <div class="field input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon3" style="width:90px;">To </span>
         </div>
-        <%= f.text_field :to, autofocus: true, autocomplete: "city", class: 'form-control',  placeholder: "Enter your arrival City"%>
+        <%= f.text_field :to, autofocus: true, autocomplete: "city", class: 'form-control',  placeholder: "Enter your arrival City" , :input_html =>{:id => 'gmaps-input-address-2'}%>
       </div>
 
       <div class="field input-group mb-3">

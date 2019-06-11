@@ -1,6 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
 
-
+    def create
+        super
+        puts "WE ARE IN THE REGISTRATION"
+        current_or_guest_user
+    end
 
     private
 

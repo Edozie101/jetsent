@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
     require 'nokogiri'
     require 'selenium-webdriver'
 
-    before_action :set_params, only: [:show,:edit,:destroy]
+    before_action :set_params, only: [:show,:edit,:destroy,:update]
 
 
 
@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
     end
 
     def my_orders
+
         @orders = Order.where(user_id: current_or_guest_user.id)
     end
 
@@ -22,6 +23,7 @@ class OrdersController < ApplicationController
     end
 
     def create
+        
         link = params[:order][:website]
 
         @order = Order.new(permit_through)
