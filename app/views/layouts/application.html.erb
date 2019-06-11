@@ -34,8 +34,9 @@
   </div>
 
   <%= render partial: 'shared/footer' %>
-  <%= yield :javascript_includes %>
   <%= javascript_include_tag "application"%>
+
+  <%= yield :javascript_includes %>
 
 
     </body>
