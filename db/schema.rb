@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_170152) do
+ActiveRecord::Schema.define(version: 2019_06_11_064840) do
 
   create_table "carts", force: :cascade do |t|
     t.string "orders"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_170152) do
     t.string "username"
     t.string "name"
     t.boolean "guest", default: false
+    t.string "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
