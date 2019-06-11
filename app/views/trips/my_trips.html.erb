@@ -1,0 +1,17 @@
+<div class="album text-muted">
+    <div class="container">
+        <div class="row">
+            <% @trips.each do |trip| %>
+                <div class="card" style="margin-top: 40px;">
+                    <p class="card-text">From <%= trip.from %> </p>
+                    <p class="card-text">To <%= trip.to %> </p>
+                    <p class="card-text">Date <%= trip.date %> </p>
+
+
+                </div>
+            <% end %>
+        </div>
+        <%= link_to "My Orders", my_orders_url %>
+        <%= link_to "Home", travel_index_path %>
+    </div>
+</div>

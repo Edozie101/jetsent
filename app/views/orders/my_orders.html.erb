@@ -1,16 +1,31 @@
 <div class="album text-muted">
     <div class="container">
         <div class="row">
-            <% @orders.each do |order| %>
-                <div class="card">
-                    <a href="<%= order_path(order)%>"><img src="<%= order.image %> " class="img-fluid" style="max-height: 400px; max-width: 100%" alt=""></a>
-                    <strong class="card-text"><%= order.name %></strong>
-                    <p class="card-text">  Item Website  <%= order.website  %> </p>
-                    <p class="card-text">  Pickup Location <%= order.pickup_location %> </p>
-                    <p class="card-text"> Drop Off Location <%= order.drop_off_location %> </p>
-                    <%= order_status(order.confirmed) %>
+            <% if !@orders.empty? %>
+                <% @orders.each do |order| %>
+                    <div class="card">
+                        <a href="<%= order_path(order)%>"><img src="<%= order.image %> " class="img-fluid" style="max-height: 400px; max-width: 100%" alt=""></a>
+                        <strong class="card-text"><%= order.name %></strong>
+                        <p class="card-text">  Item Website  <%= order.website  %> </p>
+                        <p class="card-text">  Pickup Location <%= order.pickup_location %> </p>
+                        <p class="card-text"> Drop Off Location <%= order.drop_off_location %> </p>
+                        <%= order_status(order.confirmed) %>
 
-                </div>
+                    </div>
+
+                <% end %>
+            <% else %>
+                    <div class="center">
+                        <video id="gif-mp4" class="text-center"poster="https://media.giphy.com/media/ddEecsmCn0QZW/200_s.gif" style="margin:0;padding:0" width="250" height="173" autoplay="" loop="">
+                            <source src="https://media.giphy.com/media/ddEecsmCn0QZW/giphy.mp4" type="video/mp4">
+                            Your browser does not support the mp4 video codec.
+                        </video>
+                        <h2 class="text-center"> Looks like you haven't ordered anything yet! </h2>
+                        <%= link_to "Buy stuff", orders_url %>
+
+                    </div>
+
+
 
             <% end %>
         </div>

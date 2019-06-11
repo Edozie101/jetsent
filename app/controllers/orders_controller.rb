@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     end
 
     def create
-        
+
         link = params[:order][:website]
 
         @order = Order.new(permit_through)
@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
             @order.name = @driver.find_elements(css: "h1")[0].text
             @order.image = @driver.find_elements(css: "img.a-dynamic-image")[0].attribute("src")
             prices = @driver.find_elements(css: "span.a-color-price")
-            @order.price = p2[0].text
+            @order.price = prices[0].text
 
         elsif(link.match(/facebook/))
             # Selenium screenshot mode
