@@ -19,9 +19,9 @@
 
     <div class="field input-group mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon3"><i class="fa fa-at"> </i></span>
+        <span class="input-group-text" id="basic-addon3"><i class="fa fa-person"> </i></span>
       </div>
-      <%= f.text_field :email, autofocus: true, autocomplete: "email", class: 'form-control',  placeholder: "name" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control',  placeholder: "name" %>
     </div>
 
     <div class="form-group input-group">
@@ -34,7 +34,7 @@
         <option value="2">+2</option>
         <option value="3">+3</option>
       </select>
-      <%= f.phone_field :email, autofocus: true, autocomplete: "phone", class: 'form-control',  placeholder: "Phone number" %>
+      <%= f.phone_field :phone, autofocus: true, autocomplete: "phone", class: 'form-control',  placeholder: "Phone number" %>
     </div>
 
 
@@ -67,5 +67,3 @@
 
 <% end %>
   </div>
-
-
