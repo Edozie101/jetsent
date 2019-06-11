@@ -2,11 +2,19 @@ class TravelController < ApplicationController
     before_action :set_params, only: [:edit,:show]
     before_action :create_trip, only: [:index]
 def index
-    
+
 end
 
   def create
       @trip= Trip.new(trip_params)
+
+
+  end
+
+  def globe
+      @trips = Trip.last(10)
+
+
 
 
   end

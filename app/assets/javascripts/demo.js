@@ -1,3 +1,5 @@
+
+
 var examples = {};
 
 examples['simple'] = function() {
@@ -19,7 +21,7 @@ examples['simple_tilted'] = function() {
 
 examples['simple_mars'] = function() {
   $('#sphere').earth3d({
-    texture: 'images/mars1024x1024.jpg', // texture used by planet
+    texture: 'assets/images/mars1024x1024.jpg', // texture used by planet
     dragElement: $('#locations') // where do we catch the mouse drag
   });
 };

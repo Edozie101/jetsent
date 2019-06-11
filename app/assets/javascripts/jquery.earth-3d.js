@@ -133,7 +133,7 @@
   Functions
 
     * getSphereRadiusInPixel: function which allows you to get the sphere radius in pixel
-      /!| WARNING: this function needs to be refactored, since I didn't find out (my maths courses are far away) how to
+      /!| warning: this function needs to be refactored, since I didn't find out (my maths courses are far away) how to
       get the exact value. I did a basic linear regression, but it is not exact, and you will have to change the pixelRadiusMultiplier
       option to get the correct value
 
@@ -148,7 +148,7 @@ var earth3d;
 (function($) {
   $.widget('ui.earth3d', {
     options: {
-      texture: 'images/earth1024x1024.jpg',
+      texture: 'assets/images/earth1024x1024.jpg',
       sphere: {
         tilt: 0,
         turn: 0,
@@ -830,10 +830,10 @@ var earth3d;
       this.options.locations = locations;
       this._initLocations();
     },
-    
+
     rotateBy: function(amount) {
       this.posVar += amount;
-    },    
+    },
 
     changePaths: function(paths) {
       for (var key in this.options.paths) {
@@ -850,4 +850,3 @@ var earth3d;
   });
 
 })($);
-
