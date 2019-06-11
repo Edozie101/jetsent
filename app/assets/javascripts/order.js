@@ -6,7 +6,7 @@ jQuery(function() {
       zoomLevel: 5,
       mapType: google.maps.MapTypeId.ROADMAP,
       pos: [51.751724, -1.255284],
-      inputField: '#order_pickup_location',
+      inputField: '#gmaps-input-address',
       errorField: '#gmaps-error',
       debugOn: false
   });
