@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
         begin
             @orders = Order.where(user_id: guest_user.id)
             for order in @orders
-                order.id = current_user.id
+                order.update(user_id: current_user.id)
             end
             puts "all done with the orders :)"
 
@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
         begin
             @trips = Trip.where(user_id: guest_user.id)
             for trip in @trips
-                trip.id = current_user.id
+                trip.update(user_id: current_user.id)
             end
             puts "all done with the trips :)"
         rescue
