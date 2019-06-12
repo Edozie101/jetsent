@@ -1,4 +1,4 @@
-body {
+/* body {
     background: black;
     margin: 0;
     padding: 0;
@@ -69,11 +69,11 @@ a {
 }
 
 #glow-shadows.earth {
-    background: url(assets/images/earth-glow-shadows.png);
+    background: url(/images/earth-glow-shadows.png);
 }
 
 #glow-shadows.mars {
-    background: url(assets/images/mars-glow-shadows.png);
+    background: url(/images/mars-glow-shadows.png);
 }
 
 .location {
@@ -102,7 +102,7 @@ a {
     height: 25px;
     left: 10px;
     top: 10px;
-    background: url(assets/images/plane.png);
+    background: image-url('plane.png');
     background-size: 100% 100%;
     margin-left: -12px;
     margin-top: -12.5px;
@@ -146,4 +146,4 @@ a {
 
 .social.google {
     vertical-align: -7px;
-}
+} */

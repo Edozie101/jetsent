@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_071750) do
+ActiveRecord::Schema.define(version: 2019_06_12_124152) do
 
   create_table "carts", force: :cascade do |t|
     t.string "orders"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_071750) do
     t.integer "traveller_id"
     t.date "preferred_date_start"
     t.date "preferred_date_end"
+    t.datetime "created_on"
     t.index ["traveller_id"], name: "index_orders_on_traveller_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -122,6 +123,8 @@ ActiveRecord::Schema.define(version: 2019_06_11_071750) do
     t.string "name"
     t.boolean "guest", default: false
     t.string "phone"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
