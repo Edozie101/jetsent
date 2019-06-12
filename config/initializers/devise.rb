@@ -261,9 +261,10 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   #adding  facebook omniauth
-  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"],token_params: { parse: :json }
-  config.omniauth :google, ENV["GOOGLE_APP_ID"],ENV["GOOGLE_APP_SECRET"]
-  
+  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"],token_params: { parse: :json },
+                  scope: 'name,email,birthday,gender,friends,games,likes,music,television,movies,books,checkins,feed,notifications',
+                  info_fields: 'name,email,birthday,gender',image_size:  :square, display: :popup
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
