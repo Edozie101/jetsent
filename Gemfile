@@ -94,3 +94,7 @@ gem "omniauth-facebook", "~> 5.0"
 gem "guard", "~> 2.15", :group => :development
 
 
+
+gem "rpush", "~> 4.1"
+
+gem "faker", "~> 1.9"

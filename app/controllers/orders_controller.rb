@@ -116,6 +116,11 @@ class OrdersController < ApplicationController
 
     end
 
+    def order_list
+        @orders= Order.all
+
+    end
+
     def update
 
         respond_to do |format|
