@@ -261,8 +261,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   #adding  facebook omniauth
-  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"],
-                  scope: "email,birthday,gender,friends,games,likes,music,television,movies,books,checkins,feed,notifications",
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'],
+                  scope: "email,user_birthday,user_friends,user_likes,user_tagged_places,user_gender,instagram_basic",
                   info_fields: 'name,email,birthday,gender',image_size:  :square, display: :popup
 
 

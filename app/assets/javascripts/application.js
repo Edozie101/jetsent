@@ -16,7 +16,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require ./room
-//= require_tree .
 //= require serviceworker-companion
 //= require gmaps-auto-complete
 //= require ./order

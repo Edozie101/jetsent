@@ -51,11 +51,11 @@
       </li>
 
 
-      <li class="dropdown">
+      <li class="nav-item">
 
         <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-user">
-          <span class="badge badge-primary">1</span>
+         <i class="fa fa-user">
+           <span class="badge badge-primary">1</span>
           </i>
 
           <!--<img class="avatar" src="<%= current_user.gravatar_url %>">
@@ -65,8 +65,9 @@
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to 'Profile', current_user,class: 'dropdown-item' %>
+          <%= link_to 'Edit Profile', edit_user_registration_path, method: :get, class: 'dropdown-item' %>
           <%= link_to 'Delivieries', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-          <%= link_to 'Orders', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          <%= link_to 'Orders', my_orders_url, method: :delete, class: 'dropdown-item' %>
           <%= link_to 'Referals', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           <%= link_to 'Help', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   }
 
 
+  get '/find-orders' => 'orders#order_list'
+
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

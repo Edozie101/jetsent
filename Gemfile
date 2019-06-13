@@ -87,3 +87,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "figaro", "~> 1.1"
 
 gem "omniauth-facebook", "~> 5.0"
+
+gem "guard", "~> 2.15", :group => :development

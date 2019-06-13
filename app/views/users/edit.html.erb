@@ -9,23 +9,9 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.phone_field :phone, autofocus: true, autocomplete: "phone" %>
-  </div>
-
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
-
-  <% if @user.avatar.attached? %>
-    <image src="<%= url_for(@user.avatar)%>" >
-  <% end %>
-
- <div class= "field">
-  <%= f.label "Profile Photo" %>
-  <%= f.file_field :avatar %>
- </div>
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -40,12 +26,12 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-    <% if @user.provider != "facebook" %>
-      <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password" %>
-      </div>
-    <% end %>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

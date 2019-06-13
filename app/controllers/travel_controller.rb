@@ -13,13 +13,8 @@ end
 
   def globe
       @trips = Trip.last(10)
-
-
-
-
   end
   def show
-
   end
 
   private
