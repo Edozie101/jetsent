@@ -1,6 +1,9 @@
 class TravelController < ApplicationController
     before_action :set_params, only: [:edit,:show]
     before_action :create_trip, only: [:index]
+
+
+
 def index
 
 end

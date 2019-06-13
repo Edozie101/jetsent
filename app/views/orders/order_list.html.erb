@@ -11,24 +11,22 @@
   </p>
 </div>
 <div class="container">
-    <h3 class="h3">shopping Demo-1 </h3>
+    <h3 class="h3">Global Orders </h3>
     <div class="row">
-        <% @orders.each_with_index do |order,i| %>
-        <% (i % 10) == 0 ? i = "" :  i = "#{i%10}" %>
+        <% @orders. each do |order| %>
           <div class="col-md-3 col-sm-6">
-            <div class="product-grid<%=i%>">
+            <div class="product-grid">
                 <div class="product-image">
-                    <a href="#">
-                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-1.jpg">
-                        <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-2.jpg">
+                    <a href="<%= order %>">
+                        <img class="pic-1" src="<%= order.image %>">
+                        <img class="pic-2" src="<%= order.image %>">
                     </a>
                     <ul class="social">
-                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                        <li><a href="" data-tip="PickUp"><i class="fa fa-search"></i></a></li>
                         <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
                         <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                     </ul>
-                    <span class="product-new-label">Sale</span>
-                    <span class="product-discount-label">20%</span>
+                    <%= order_status order.confirmed%>
                 </div>
                 <ul class="rating">
                     <li class="fa fa-star"></li>
@@ -37,6 +35,7 @@
                     <li class="fa fa-star"></li>
                     <li class="fa fa-star disable"></li>
                 </ul>
+
                 <div class="product-content">
                     <h3 class="title"><a href="#"><%= order.name %></a></h3>
                     <div class="price"><%= order.price %>
@@ -146,7 +145,7 @@
 </div>
 <hr>
 
-
+<!--
 <div class="container">
     <h3 class="h3">shopping Demo-2 </h3>
     <div class="row">
@@ -960,4 +959,4 @@
         </div>
     </div>
 </div>
-<hr>
+<hr> -->

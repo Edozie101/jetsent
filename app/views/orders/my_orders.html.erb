@@ -1,3 +1,74 @@
+<!-- <div class="jumbotron" >
+  <h1 class="display-4">Hello, world!</h1>
+  <p class="lead">Welcome to Jetsent, here you can pickup orders that you're interested in and earn money for it !</p>
+  <hr class="my-4">
+  <p>Find out how you can m</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Travel</a>
+  </p>
+</div> -->
+<div class="container">
+    <h3 class="h3">My Orders</h3>
+    <div class="row">
+        <% if !@orders.empty? %>
+
+        <% @orders.each do |order| %>
+          <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="<%= order.image %>">
+                        <img class="pic-2" src="<%= order.image %>">
+                    </a>
+                    <ul class="social">
+                        <li><a href="" data-tip="Some order factor"><i class="fa fa-search"></i></a></li>
+                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    <%= order_status(order.confirmed) %>
+
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star disable"></li>
+                </ul>
+
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><%= order.name %></a></h3>
+                    <div class="price"><%= order.price %>
+                        <p class="">  Item Website  <%= order.website  %> </p>
+                        <p class="">  Pickup Location <%= order.pickup_location %> </p>
+                        <p class=""> Drop Off Location <%= order.drop_off_location %> </p>
+
+
+                        <!-- <span>$20.00</span> -->
+                    </div>
+                    <a class="add-to-cart" href="<%= order_path(order)%>">+ View Order </a>
+                </div>
+            </div>
+        </div>
+
+        <% end  %>
+        <% else %>
+        <div class="center">
+            <video id="gif-mp4" class="text-center"poster="https://media.giphy.com/media/ddEecsmCn0QZW/200_s.gif" style="margin:0;padding:0" width="250" height="173" autoplay="" loop="">
+                <source src="https://media.giphy.com/media/ddEecsmCn0QZW/giphy.mp4" type="video/mp4">
+                Your browser does not support the mp4 video codec.
+            </video>
+            <h2 class="text-center"> Looks like you haven't ordered anything yet! </h2>
+            <%= link_to "Buy stuff", orders_url %>
+
+        </div>
+        <% end %>
+
+    </div>
+</div>
+<hr>
+
+<!--
 <div class="album text-muted">
     <div class="container">
         <div class="row">
@@ -35,3 +106,6 @@
         </div>
     </div>
 </div>
+
+
+ -->

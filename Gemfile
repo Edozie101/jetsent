@@ -95,6 +95,7 @@ gem "guard", "~> 2.15", :group => :development
 
 
 
-gem "rpush", "~> 4.1"
 
 gem "faker", "~> 1.9"
+
+gem "webpush", "~> 0.3.8"

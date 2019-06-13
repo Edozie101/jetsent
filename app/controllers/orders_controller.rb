@@ -98,7 +98,7 @@ class OrdersController < ApplicationController
         if @order.user_id != "N/A"
             @order.save!
             respond_to do |format|
-                    format.html { redirect_to @order }
+                    format.html { redirect_to @order , notice: "Your order is registed ! "}
             end
 
         else

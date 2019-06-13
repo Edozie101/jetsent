@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_010351) do
+ActiveRecord::Schema.define(version: 2019_06_13_041300) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 2019_06_13_010351) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+  end
+
+  create_table "notification_data", force: :cascade do |t|
+    t.string "endpoint"
+    t.string "p256dh_key"
+    t.string "auth_key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -215,6 +223,8 @@ ActiveRecord::Schema.define(version: 2019_06_13_010351) do
     t.string "phone"
     t.string "provider"
     t.string "uid"
+    t.string "auth_key"
+    t.integer "notif_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -14,7 +14,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <link rel="icon" href="/images/icon.png">
+    <!-- <link rel="icon" href="/images/icon.png"> -->
 
 
   <link rel="manifest" href="/manifest.json" />
@@ -40,9 +40,29 @@
   <%= javascript_include_tag "application"%>
   <%= javascript_include_tag "order.js" %>
 
+
   <!-- <%= yield :javascript_includes %> -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script> -->
 
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#config-web-app -->
 
+  <!-- <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyA3IFooet2aO0Y1UetEDS3Ux5hPT_89CBo",
+      authDomain: "jetsent-bedd3.firebaseapp.com",
+      databaseURL: "https://jetsent-bedd3.firebaseio.com",
+      projectId: "jetsent-bedd3",
+      storageBucket: "jetsent-bedd3.appspot.com",
+      messagingSenderId: "443292644550",
+      appId: "1:443292644550:web:59f2dc89aa11a020"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+ -->
 
     </body>
 </html>

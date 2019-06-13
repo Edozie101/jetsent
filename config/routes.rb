@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
 
   get '/find-orders' => 'orders#order_list'
-
+  get "/content" => "content#index"
+  post "/sendkeys" => "content#getJSON", :as => :getJSON
+  post "/sendNo" => "content#sendPush", :as => :sendPush
 
 
 

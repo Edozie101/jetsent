@@ -20,7 +20,7 @@ RSpec.describe User, :type => :model do
 	end
 
 	it 'should raise an error when an email exists within the database' do
-		expect{ create(:user)}.to raise_error
+		expect{ User.create(email: @user1.email, password: "password")}.to raise_error
 		
 	end
 	
