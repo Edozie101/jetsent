@@ -5,6 +5,9 @@ class UsersController < ApplicationController
     @email = @user.email
   end
 
+  def hello
+      puts "hellooo"
+  end
 
     protected
     def set_params

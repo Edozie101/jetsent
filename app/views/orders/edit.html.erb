@@ -1,8 +1,16 @@
+
+
 <% content_for :javascript_includes do %>
     <script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6Zm4SmPBT4SRR4t9eaiOPe6EpPGOBfAo&callback=initMap"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <%= javascript_include_tag "order.js" %>
+    <%= javascript_include_tag "currencyjq.js" %>
+
+<% end %>
+
+<% content_for :stylesheet_includes do %>
+    <%= stylesheet_link_tag "currencyselector" %>
 <% end %>
 
 
@@ -16,6 +24,18 @@
       </div>
       <div class="form-inputs">
          <%= f.input :price, input_html:{value: "#{@order.price}"}   %>
+         <div class="input-group-addon currency-addon">
+
+            <select class="currency-selector">
+              <option data-symbol="$" data-placeholder="0.00" selected>USD</option>
+              <option data-symbol="€" data-placeholder="0.00">EUR</option>
+              <option data-symbol="£" data-placeholder="0.00">GBP</option>
+              <option data-symbol="¥" data-placeholder="0">JPY</option>
+              <option data-symbol="$" data-placeholder="0.00">CAD</option>
+              <option data-symbol="$" data-placeholder="0.00">AUD</option>
+            </select>
+
+        </div>
        </div>
 
        <div class="form-inputs">

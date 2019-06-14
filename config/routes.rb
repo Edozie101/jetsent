@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get "/content" => "content#index"
   post "/sendkeys" => "content#getJSON", :as => :getJSON
   post "/sendNo" => "content#sendPush", :as => :sendPush
+  post "/sendNoU" => "users#sendPush", :as => :sendPushU
+
 
 
 
