@@ -1,7 +1,12 @@
 function sendPush(){
     getKeys(false)
 }
-var vapidPublicKey = new Uint8Array(<%=Base64.urlsafe_decode64(ENV["vpublic_key"]).bytes%>);
+var vpk;
+document.addEventListener('DOMContentLoaded', function(e) {
+  console.log($('.vapidPublicKey').data('data'));
+  vpk = $('.vapidPublicKey').data('data') ;
+});
+var vapidPublicKey = vpk;
 function checkNotifs(obj){
 if (!("Notification" in window)) {                                             //1
     console.error("This browser does not support desktop notification");

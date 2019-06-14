@@ -35,9 +35,10 @@
   </div>
 
   <%= render partial: 'shared/footer' %>
-   <%= javascript_include_tag "application"%>
-   <%= yield :javascript_includes %>
-    <%= javascript_include_tag "notification.js" %>
+  <%= javascript_include_tag "application"%>
+  <%= yield :javascript_includes %>
+  <%= content_tag :div, class: 'vapidPublicKey', data: { data: new Uint8Array(<%=Base64.urlsafe_decode64(ENV["vpublic_key"]).bytes%>)} do %> <% end %>
+  <%= javascript_include_tag "notification.js" %>
 
 
 
