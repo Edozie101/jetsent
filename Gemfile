@@ -99,3 +99,5 @@ gem "guard", "~> 2.15", :group => :development
 gem "faker", "~> 1.9"
 
 gem "webpush", "~> 0.3.8"
+
+gem "stripe-rails", "~> 1.7"

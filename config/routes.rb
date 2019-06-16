@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post "/sendkeys" => "content#getJSON", :as => :getJSON
   post "/sendNo" => "content#sendPush", :as => :sendPush
   post "/sendNoU" => "users#sendPush", :as => :sendPushU
+  get '/card/new' => 'billing#new_card', as: :add_payment_method
 
 
 

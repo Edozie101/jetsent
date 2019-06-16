@@ -19,8 +19,10 @@
 
 
   <link rel="manifest" href="/manifest.json" />
-<meta name="apple-mobile-web-app-capable" content="yes"></head>
+<meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
 
   <body>
   <div class="" id="div-nav">
@@ -37,8 +39,11 @@
   <%= render partial: 'shared/footer' %>
   <%= javascript_include_tag "application"%>
   <%= yield :javascript_includes %>
-  <%= content_tag :div, class: 'vapidPublicKey', data: { data: new Uint8Array(<%=Base64.urlsafe_decode64(ENV["vpublic_key"]).bytes%>)} do %> <% end %>
-  <%= javascript_include_tag "notification.js" %>
+
+  <% a = ( Base64.urlsafe_decode64(ENV["vpublic_key"]).bytes) %>
+
+  <%= content_tag :div, class: 'vapidPublicKey', data: { data: a } do %> <% end %>
+ <%= javascript_include_tag "notification.js" %>
 
 
 
