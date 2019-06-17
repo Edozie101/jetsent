@@ -12,7 +12,7 @@
   <% if @minimum_password_length then @pw_message = "Password (min. #{@minimum_password_length} characters)" else @pw_message="password" end%>
 
     <p>
-      <a href="" class="btn btn-block btn-google"> <i class="fab fa-google"></i> &nbsp; Login via Google</a>
+      <!-- <a href="" class="btn btn-block btn-google"> <i class="fab fa-google"></i> &nbsp; Login via Google</a> -->
       <a href="<%= user_facebook_omniauth_authorize_path %>" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i> &nbsp; Login via facebook</a>
     </p>
 

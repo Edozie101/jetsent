@@ -101,3 +101,5 @@ gem "faker", "~> 1.9"
 gem "webpush", "~> 0.3.8"
 
 gem "stripe-rails", "~> 1.7"
+
+gem "country-select", "~> 1.2"

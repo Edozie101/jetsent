@@ -92,6 +92,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
+    country-select (1.2.1)
     crass (1.0.4)
     devise (4.6.2)
       bcrypt (~> 3.0)
@@ -383,6 +384,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  country-select (~> 1.2)
   devise
   devise-guests
   factory_bot_rails
