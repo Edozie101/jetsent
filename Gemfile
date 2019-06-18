@@ -103,3 +103,7 @@ gem "webpush", "~> 0.3.8"
 gem "stripe-rails", "~> 1.7"
 
 gem "country-select", "~> 1.2"
+
+gem "plivo", "~> 4.3"
+
+gem "twilio-ruby", "~> 5.24"

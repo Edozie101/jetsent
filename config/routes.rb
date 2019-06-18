@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   post "/sendNo" => "content#sendPush", :as => :sendPush
   post "/sendNoU" => "users#sendPush", :as => :sendPushU
   get '/card/new' => 'billing#new_card', as: :add_payment_method
+  get '/subscribe' => 'home#subscription'
 
-
+  resources :subscribers, only: [:create,:destroy]
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

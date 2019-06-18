@@ -31,6 +31,11 @@ class HomeController < ApplicationController
 
     end
 
+    def subscription
+        @subscriber = Subscriber.new
+
+    end
+
 
     private
 

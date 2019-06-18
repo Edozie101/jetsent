@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_094421) do
+ActiveRecord::Schema.define(version: 2019_06_17_223854) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -174,6 +174,26 @@ ActiveRecord::Schema.define(version: 2019_06_14_094421) do
     t.boolean "dry_run", default: false, null: false
     t.index ["app_id", "delivered", "failed", "deliver_after"], name: "index_rapns_notifications_multi"
     t.index ["delivered", "failed", "processing", "deliver_after", "created_at"], name: "index_rpush_notifications_multi", where: "NOT delivered AND NOT failed"
+  end
+
+  create_table "subscribers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.integer "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "email"
+    t.string "phone"
+    t.string "name"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "traveller"
+    t.integer "state"
   end
 
   create_table "travellers", force: :cascade do |t|
