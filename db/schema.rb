@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_223854) do
+ActiveRecord::Schema.define(version: 2019_06_18_153146) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -37,6 +37,17 @@ ActiveRecord::Schema.define(version: 2019_06_17_223854) do
     t.string "orders"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "confirmations", force: :cascade do |t|
+    t.integer "order_id"
+    t.string "price"
+    t.string "currency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["order_id"], name: "index_confirmations_on_order_id"
+    t.index ["user_id"], name: "index_confirmations_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -75,6 +86,7 @@ ActiveRecord::Schema.define(version: 2019_06_17_223854) do
     t.date "preferred_date_end"
     t.datetime "created_on"
     t.string "currency"
+    t.string "shipper_fee"
     t.index ["traveller_id"], name: "index_orders_on_traveller_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

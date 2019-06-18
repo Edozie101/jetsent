@@ -4,9 +4,13 @@
   <div class=" container sign_reg_card">
     <h1> </h1>
 
-<% if @order.confirmed == "on_display" %>
-
-
+<% if @order.confirmed == "on_display" and @order.user_id != current_user.id %>
+        <h2>Confirm this order's price to pick it up ! </h2>
+   <%= simple_form_for Confirmation.new(user_id: current_user.id,order_id: @order.id) do |f| %>
+        <%= f.input :currency %>
+        <%= f.input :price %>
+        <%= f.button :submit %>
+   <% end %>
 <% end %>
 
  <div class="card" style="width: 18rem;">
@@ -19,12 +23,46 @@
         <li class="list-group-item">Status <%= order_status(@order.confirmed) %> </li>
         <li class="list-group-item"> User <%= guest_status(@order.user.guest) %> </li>
       </ul>
-    </div>
+</div>
     <%= link_to("Confirm Order", edit_order_path(@order)) %>
     <%= link_to("My Orders", my_orders_url) %>
 
 
 
+
   </div>
+
+  <% if @order.user_id == current_user.id %>
+  <table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Traveller</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Price</th>
+      <th scope="col">Shipping Fee</th>
+      <th scope="col"> Accept / Deny </th>
+    </tr>
+  </thead>
+  <tbody>
+      <% Confirmation.where(order_id: @order.id).each do |conf| %>
+
+      <tr>
+        <th scope="row">1</th>
+        <td> <%= conf.user.email %></td>
+        <td><%= rand(5)%> Star Rating</td>
+        <td> <%= conf.price %> <%= conf.currency %> </td>
+        <td>  <%= @order.shipping_fee %> </td>
+        <td> <%= link_to 'Delete', confirmation_path(conf), data: {confirm: "Are you sure?"}, method: :delete %>  <%= link_to 'Accept', confirmation_path(conf), data: {confirm: "Are you sure?"}, method: :accept %></td>
+      </tr>
+
+      <% end  %>
+
+  </tbody>
+</table>
+
+
+
+
+  <% end %>
 
 </div>

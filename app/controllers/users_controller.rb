@@ -7,12 +7,12 @@ class UsersController < ApplicationController
 
   def hello
       puts "hellooo"
+      
   end
 
     protected
     def set_params
         @user = User.find(params[:id])
-
     end
 
 end
