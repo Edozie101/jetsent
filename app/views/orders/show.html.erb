@@ -53,8 +53,7 @@
         <td> <%= conf.price %> <%= conf.currency %> </td>
         <td>  <%= @order.shipping_fee %> </td>
         <td> <%= link_to 'Delete', confirmation_path(conf), data: {confirm: "Are you sure?"}, method: :delete %>  <%= link_to 'Accept', confirmation_path(conf), data: {confirm: "Are you sure?"}, method: :accept %></td>
-      </tr>
-
+      </tr> 
       <% end  %>
 
   </tbody>
