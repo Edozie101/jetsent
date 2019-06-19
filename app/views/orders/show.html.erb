@@ -4,7 +4,7 @@
   <div class=" container sign_reg_card">
     <h1> </h1>
 
-<% if @order.confirmed == "on_display" and @order.user_id != current_user.id %>
+<% if @order.confirmed == "on_display" and @order.user_id != current_or_guest_user.id  %>
         <h2>Confirm this order's price to pick it up ! </h2>
    <%= simple_form_for Confirmation.new(user_id: current_user.id,order_id: @order.id) do |f| %>
         <%= f.input :currency %>
@@ -32,7 +32,7 @@
 
   </div>
 
-  <% if @order.user_id == current_user.id %>
+  <% if @order.user_id == current_or_guest_user.id %>
   <table class="table table-sm">
   <thead>
     <tr>

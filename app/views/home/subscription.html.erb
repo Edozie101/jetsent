@@ -117,11 +117,11 @@
               JetSent connects shoppers and travelers to access the world's best products.</p>
 
             <div>
-                <%= simple_form_for @subscriber do |f| , class: "form-inline"%>
+                <%= simple_form_for @subscriber do |f| %>
                     <%= f.input :name %>
                     <%= f.input :email %>
                     <%= f.input :phone %>
-                    <%= f.input :state, as: :radio_buttons, collection: [['Traveller', 0], ['Shopper', 1],['Both', 2]] %>
+                    <%= f.input :state, as: :radio_buttons, collection: [['I travel a lot! ', 0], ['I shop a lot ! ', 1],['I do both', 2]] %>
                     <%= f.button :submit %>
                <% end %>
             </div>

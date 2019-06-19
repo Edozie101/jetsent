@@ -8,12 +8,12 @@ class SubscribersController < ApplicationController
 		respond_to do |format|
 			if @subscriber.save
 				SubscriberMailer.with(subscriber: @subscriber).welcome_email.deliver_later
-				@twilio.api.account.messages.create(from: @num, to: @subscriber.phone, body: "#{@subscriber.name}, Congratulations for signing up to Jetsent, we will keep you update with all JetSent related progress")
+				@twilio.api.account.messages.create(from: @num, to: @subscriber.phone, body: " #{@subscriber.name}, Congratulations for signing up to Jetsent, we will keep you update with all JetSent related progress")
 				format.html {redirect_to subscribe_url, notice: "Congratulations for signing up early"}
 				format.json {render json: @subscriber, status: :created, location: @subscriber}
 			else
 				format.html {redirect_to subscribe_url, notice: "something is wrong here :/"}
-				
+
 			end
 
 
