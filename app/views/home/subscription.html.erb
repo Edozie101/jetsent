@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
+<script>   $(document).ready(function(){
+    $('select').formSelect();
+});
+</script>
 <script>
     AOS.init({
         duration: 800,
@@ -15,6 +19,8 @@
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
 
 <style media="screen">
   a{
@@ -101,10 +107,14 @@
 
 
 
+
+
 <div class="site-blocks-cover overlay" style="background-image: url(<%= asset_path 'hero_2.jpg' %>" data-aos="fade" data-stellar-background-ratio="0.5">
 
   <div class="container">
     <div class="row align-items-center justify-content-center">
+
+
 
       <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
 
@@ -116,18 +126,37 @@
             <p class="mb-5 lead font-weight-bold" style="text-align:left !important;">
               JetSent connects shoppers and travelers to access the world's best products.</p>
 
+
+
+
+
             <div>
-                <%= simple_form_for @subscriber do |f| %>
-                    <%= f.input :name %>
-                    <%= f.input :email %>
-                    <%= f.input :phone %>
-                    <%= f.input :state, as: :radio_buttons, collection: [['Traveller', 0], ['Shopper', 1],['Both', 2]] %>
-                    <%= f.button :submit %>
+
+                <%= form_for   @subscriber, :html=> { class: 'form' } do |f| %>
+
+                <div>
+
+#
+                <div  class="my-input-wrapper">
+                    <%= f.text_field :name,  label: false, placeholder:"name", class: 'subscribe_input form-control'  %>
+                    <%= f.email_field :email,  label: false, placeholder: 'email', class: 'subscribe_input form-control'   %>
+                    <%= f.text_field :phone,  label: false, placeholder: 'phone', class: 'subscribe_input form-control'  %>
+                </div>
+                  <div  class="select-wrapper">
+
+                    <%= f.select( :state,   options_for_select([["Select One", ""], "Traveller", "Shopper", "Both"]), {} ,{class: "custom-select custom-select-lg mb-3"}) %>
+                  </div>
+
+                  <div  class="my-checkbox-wrapper">
+
+                  <%= f.button :submit, class: "btn btn-white btn-outline-white" %>
+                </div>
+                </div>
                 <% end %>
             </div>
             <br>
 
-
+            
 
           </div>
         </div>
