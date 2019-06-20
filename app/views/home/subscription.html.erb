@@ -65,6 +65,12 @@
 
 </style>
 
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag "daemonite_js/material.js" %>
+<% end %>
+
+
+
 
 <title>JetSent.io &mdash; </title>
 <meta charset="utf-8">
@@ -131,34 +137,44 @@
 
 
             <div>
+            <% if !session[:subscriber_id] %>
 
-
-                <%= form_for   @subscriber, :html=> { class: 'form' } do |f| %>
+                <%= form_for  @subscriber, :html=> { class: 'form-inline' } do |f| %>
 
                 <div>
 
-#
-                <div  class="my-input-wrapper">
-                    <%= f.text_field :name,  label: false, placeholder:"name", class: 'subscribe_input form-control'  %>
-                    <%= f.email_field :email,  label: false, placeholder: 'email', class: 'subscribe_input form-control'   %>
-                    <%= f.text_field :phone,  label: false, placeholder: 'phone', class: 'subscribe_input form-control'  %>
-                </div>
-                  <div  class="select-wrapper">
+                    <div  class="my-input-wrapper">
+                        <%= f.text_field :name,  label: false, placeholder:"name", class: 'subscribe_input form-control'  %>
+                        <%= f.email_field :email,  label: false, placeholder: 'email', class: 'subscribe_input form-control'   %>
+                        <%= f.text_field :phone,  label: false, placeholder: 'phone', class: 'subscribe_input form-control'  %>
+                    </div>
+                      <div  class="select-wrapper">
 
-                    <%= f.select( :state,   options_for_select([["Select One", ""], "Traveller", "Shopper", "Both"]), {} ,{class: "custom-select custom-select-lg mb-3"}) %>
-                  </div>
+                        <%= f.select( :state,   options_for_select([["Which one are you?", ""], "Traveller", "Shopper", "Both"]), {} ,{class: "custom-select custom-select-sm mb-3"}) %>
+                      </div>
 
-                  <div  class="my-checkbox-wrapper">
+                      <div  class="my-checkbox-wrapper">
 
-                  <%= f.button :submit, class: "btn btn-white btn-outline-white" %>
-                </div>
+                      <%= f.button :submit, class: "btn btn-white btn-outline-white" %>
+                    </div>
                 </div>
                 <% end %>
->>>>>>> 33e9977d22566678d4404cf8499632fffaf1b42c
+            <% else %>
+
+                <%= form_tag("/signReferrers", method: "post") do %>
+                  <%= label_tag(:referrer_1, "Email #1") %>
+                  <%= text_field_tag(:referrer_1) %>
+                  <%= label_tag(:referrer_2, "Email #2") %>
+                  <%= text_field_tag(:referrer_2) %>
+                  <%= label_tag(:referrer_3, "Email #3") %>
+                  <%= text_field_tag(:referrer_3) %>
+                  <%= submit_tag("Send") %>
+                <% end %>
+            <% end %>
             </div>
             <br>
 
-            
+
 
           </div>
         </div>
@@ -388,7 +404,7 @@
         <h3 class="section-sub-title">Become a Jet-Setter</h3>
         <h3 class="section-title text-white mb-4">Launch Countdown</h3>
         <p class="mb-5 lead">Sign up before the exclusive offer expires. We are offering 50% discounts on commissions if you sign early. </p>
-        <% simple_form_for @subscriber do |f| %>
+        <%= simple_form_for @subscriber do |f| %>
             <%= f.input :name %>
             <%= f.input :email %>
             <%= f.input :phone %>

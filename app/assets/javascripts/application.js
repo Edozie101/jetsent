@@ -16,7 +16,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require ./room
-//= require ./daemonite_js/material.js
 //= require serviceworker-companion
 //= require gmaps-auto-complete
 //= require ./order

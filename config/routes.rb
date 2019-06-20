@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post "/sendNoU" => "users#sendPush", :as => :sendPushU
   get '/card/new' => 'billing#new_card', as: :add_payment_method
   get '/subscribe' => 'home#subscription'
-
+  post '/signReferrers' => 'subscribers#create_referrers'
   resources :subscribers, only: [:create,:destroy]
 
 
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   }
   get :trips, action: :show, controller: :travel
 
-  root controller: :home, action: :index
+  root controller: :home, action: :subscription
   resources :room_messages
   resources :rooms
   post '/search' => 'item#search'
